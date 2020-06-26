@@ -34,8 +34,8 @@ class Noteboard extends Component {
 
   deleteNote = () => {};
 
-  handleNote = (event, action) => {
-    event.target.style.zIndex = this.state.zIndex;
+  handleNote = (e, action) => {
+    e.currentTarget.style.zIndex = this.state.zIndex;
     switch (action) {
       case 0:
         this.resizeNote();

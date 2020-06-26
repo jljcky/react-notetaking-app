@@ -13,7 +13,7 @@ class NoteField extends Component {
       <div
         className="note-field"
         contentEditable={this.props.isTyping}
-        onClick={(e) => {
+        onDoubleClick={(e) => {
           this.props.startTyping(e);
         }}
         style={{

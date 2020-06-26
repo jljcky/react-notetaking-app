@@ -4,8 +4,14 @@ import Note from "./Note";
 class Noteboard extends Component {
   state = { isTyping: false, zIndex: 0, notes: [] };
 
-  toggleTyping = (typing) => {
-    this.setState({ isTyping: typing });
+  startTyping = (e) => {
+    if (e.target.className === "note-field") {
+      this.setState({ isTyping: true });
+    }
+  };
+
+  stopTyping = (e) => {
+    if (e.target.className === "noteboard") this.setState({ isTyping: false });
   };
 
   createNote = (e) => {
@@ -22,7 +28,9 @@ class Noteboard extends Component {
 
   resizeNote = () => {};
 
-  dragNote = () => {};
+  dragNote = () => {
+    if (this.state.isTyping) return;
+  };
 
   deleteNote = () => {};
 
@@ -56,15 +64,15 @@ class Noteboard extends Component {
         x={note.x}
         y={note.y}
         zIndex={note.zIndex}
-        toggleTyping={this.toggleTyping}
+        startTyping={this.startTyping}
         handleNote={this.handleNote}
       />
     ));
     return (
       <div
         className="noteboard"
-        onClick={() => {
-          this.toggleTyping(false);
+        onClick={(e) => {
+          this.stopTyping(e);
         }}
         onDoubleClick={(e) => {
           this.createNote(e);

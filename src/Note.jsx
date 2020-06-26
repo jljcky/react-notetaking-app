@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NoteField from "./NoteField";
 
 class Note extends Component {
   state = {
@@ -6,7 +7,7 @@ class Note extends Component {
     height: 250,
     x: this.props.x,
     y: this.props.y,
-    zIndex: 0,
+    zIndex: this.props.zIndex,
   };
 
   render() {
@@ -27,15 +28,14 @@ class Note extends Component {
           this.props.handleNote(e, 1);
         }}
       >
-        <div
-          className="note-field"
-          contentEditable={this.props.isTyping}
-          onDoubleClick={() => {
-            this.props.toggleTyping(true);
-          }}
-        ></div>
-        <div className="note-resize"></div>
-        <div className="note-delete"></div>
+        <div className="note-options">
+          <div className="note-delete"></div>
+          <div className="note-resize"></div>
+        </div>
+        <NoteField
+          isTyping={this.props.isTyping}
+          startTyping={this.props.startTyping}
+        />
       </div>
     );
   }

@@ -49,8 +49,7 @@ body {
 }
 
 .note-field {
-  /* float: left; */
-  /* padding: 10px; */
+  margin: 10px;
   flex: 1 1 auto;
   background-color: red;
   overflow-wrap: break-word;

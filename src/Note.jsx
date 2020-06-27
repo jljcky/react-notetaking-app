@@ -2,30 +2,27 @@ import React, { Component } from "react";
 import NoteField from "./NoteField";
 
 class Note extends Component {
-  state = {
-    width: 250,
-    height: 250,
-    x: this.props.x,
-    y: this.props.y,
-    zIndex: this.props.zIndex,
-  };
+  // state = {
+  //   width: 250,
+  //   height: 250,
+  //   x: this.props.x,
+  //   y: this.props.y,
+  // };
 
   render() {
+    let { note } = this.props;
     return (
       <div
         className="note"
         style={{
-          width: this.state.width,
-          height: this.state.height,
-          left: this.state.x,
-          top: this.state.y,
-          zIndex: this.state.zIndex,
+          width: note.width,
+          height: note.height,
+          left: note.x,
+          top: note.y,
+          zIndex: note.zIndex,
         }}
-        onClick={(e) => {
-          this.props.handleNote(e);
-        }}
-        onDrag={(e) => {
-          this.props.handleNote(e, 1);
+        onMouseDown={(e) => {
+          this.props.selectNote(e, note.id);
         }}
       >
         <div className="note-options">

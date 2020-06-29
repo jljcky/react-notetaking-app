@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 import NoteField from "./NoteField";
+import NoteDrag from "./NoteDrag";
 
 class Note extends Component {
-  // state = {
-  //   width: 250,
-  //   height: 250,
-  //   x: this.props.x,
-  //   y: this.props.y,
-  // };
-
   render() {
     let { note } = this.props;
     return (
@@ -23,16 +17,12 @@ class Note extends Component {
         }}
         onMouseDown={(e) => {
           this.props.selectNote(e, note.id);
+          if (e.target.className === "note-drag")
+            this.props.dragNote(e, note.id, "mousedown");
         }}
       >
-        <div className="note-options">
-          <div className="note-delete"></div>
-          <div className="note-resize"></div>
-        </div>
-        <NoteField
-          isTyping={this.props.isTyping}
-          startTyping={this.props.startTyping}
-        />
+        <NoteDrag />
+        <NoteField description={note.description} />
       </div>
     );
   }

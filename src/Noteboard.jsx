@@ -135,7 +135,10 @@ class Noteboard extends Component {
     }
   };
 
-  deleteNote = () => {};
+  deleteNote = (e, id) => {
+    let notes = this.state.notes.filter((note) => note.id !== id);
+    this.setState({ notes: notes });
+  };
 
   render() {
     let notes = this.state.notes.map((note) => (
@@ -145,6 +148,7 @@ class Noteboard extends Component {
         selectNote={this.selectNote}
         dragNote={this.dragNote}
         resizeNote={this.resizeNote}
+        deleteNote={this.deleteNote}
         selected={this.state.selectedNoteID === note.id}
         isNotIdle={this.state.isDragging || this.state.isResizing}
       />

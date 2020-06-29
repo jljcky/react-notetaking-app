@@ -46,10 +46,21 @@ body {
   border: none;
 }
 
+.note-field:disabled {
+  background: transparent;
+}
+
 .note-resize {
   position: absolute;
   background-color: white;
   border: 5px solid lightskyblue;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.note-delete {
+  position: absolute;
+  background-color: red;
   border-radius: 50%;
   box-sizing: border-box;
 }

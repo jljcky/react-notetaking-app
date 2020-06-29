@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NoteField from "./NoteField";
 import NoteDrag from "./NoteDrag";
 import NoteResize from "./NoteResize";
+import NoteDelete from "./NoteDelete";
 
 class Note extends Component {
   render() {
@@ -39,6 +40,14 @@ class Note extends Component {
         <NoteResize
           selected={this.props.selected}
           side={20}
+          x={width}
+          y={height}
+        />
+        <NoteDelete
+          deleteNote={this.props.deleteNote}
+          id={note.id}
+          selected={this.props.selected}
+          side={30}
           x={width}
           y={height}
         />

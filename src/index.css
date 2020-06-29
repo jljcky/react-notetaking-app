@@ -26,6 +26,10 @@ body {
   box-shadow: 0px 0px 10px black;
   display: flex;
   flex-flow: column;
+  border: 5px solid lightskyblue;
+  box-sizing: border-box;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .note-drag {
@@ -40,4 +44,12 @@ body {
   overflow-wrap: break-word;
   resize: none;
   border: none;
+}
+
+.note-resize {
+  position: absolute;
+  background-color: white;
+  border: 5px solid lightskyblue;
+  border-radius: 50%;
+  box-sizing: border-box;
 }

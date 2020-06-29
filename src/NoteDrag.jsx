@@ -1,10 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class NoteDrag extends Component {
-  state = {};
-  render() {
-    return <div className="note-drag"></div>;
-  }
-}
+const NoteDrag = () => {
+  return <div className="note-drag"></div>;
+};
 
 export default NoteDrag;

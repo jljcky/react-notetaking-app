@@ -6,8 +6,8 @@ const NoteResize = (props) => {
     <div
       className="note-resize"
       style={{
-        left: props.x - props.side / 2 - 5,
-        top: props.y - props.side / 2 - 5,
+        left: props.x - props.side / 2,
+        top: props.y - props.side / 2,
         width: props.side,
         height: props.side,
         display: display,

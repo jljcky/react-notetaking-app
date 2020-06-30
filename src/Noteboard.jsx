@@ -150,6 +150,8 @@ class Noteboard extends Component {
         resizeNote={this.resizeNote}
         deleteNote={this.deleteNote}
         selected={this.state.selectedNoteID === note.id}
+        isDragging={this.state.isDragging}
+        isResizing={this.state.isResizing}
         isNotIdle={this.state.isDragging || this.state.isResizing}
       />
     ));

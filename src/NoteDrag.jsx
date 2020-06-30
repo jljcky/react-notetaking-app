@@ -1,7 +1,8 @@
 import React from "react";
 
-const NoteDrag = () => {
-  return <div className="note-drag"></div>;
+const NoteDrag = (props) => {
+  let cursor = props.isDragging ? "grabbing" : "grab";
+  return <div className="note-drag" style={{ cursor: cursor }}></div>;
 };
 
 export default NoteDrag;

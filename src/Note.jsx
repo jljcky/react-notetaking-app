@@ -7,7 +7,7 @@ import NoteDelete from "./NoteDelete";
 class Note extends Component {
   render() {
     let { note } = this.props;
-    let display = this.props.selected ? "solid" : "hidden";
+    // let display = this.props.selected ? "solid" : "hidden";
     let minWidth = 100;
     let minHeight = 100;
     let width = note.width > minWidth ? note.width : minWidth;
@@ -22,7 +22,7 @@ class Note extends Component {
           left: note.x,
           top: note.y,
           zIndex: note.zIndex,
-          borderStyle: display,
+          // borderStyle: display,
         }}
         onMouseDown={(e) => {
           this.props.selectNote(e, note.id);
@@ -32,7 +32,7 @@ class Note extends Component {
             this.props.resizeNote(e, note.id, "mousedown");
         }}
       >
-        <NoteDrag />
+        <NoteDrag isDragging={this.props.isDragging} />
         <NoteField
           description={note.description}
           isNotIdle={this.props.isNotIdle}

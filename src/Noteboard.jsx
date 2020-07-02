@@ -15,6 +15,22 @@ class Noteboard extends Component {
     dY: 0,
   };
 
+  componentDidMount() {
+    let noteboard = localStorage.getItem("notes");
+    if (noteboard) {
+      noteboard = JSON.parse(noteboard);
+      this.setState({
+        noteID: noteboard.noteID,
+        zIndex: noteboard.zIndex,
+        notes: noteboard.notes,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    localStorage.setItem("notes", JSON.stringify(prevState));
+  }
+
   selectNote = (e, id) => {
     e.currentTarget.style.zIndex = this.state.zIndex;
     this.setState((prevState) => {
@@ -115,7 +131,6 @@ class Noteboard extends Component {
         break;
       case "mousemove":
         let notes = this.workWithNote(this.state.selectedNoteID, (note) => {
-          // console.log(e.clientX - note.x + " " + (e.clientY - note.y));
           note.width = e.clientX - note.x;
           note.height = e.clientY - note.y;
           return note;
@@ -140,6 +155,18 @@ class Noteboard extends Component {
     this.setState({ notes: notes });
   };
 
+  writeNote = (e) => {
+    let notes = this.workWithNote(this.state.selectedNoteID, (note) => {
+      note.description = e.target.value;
+      console.log(note.description);
+      return note;
+    });
+
+    this.setState({
+      notes: notes,
+    });
+  };
+
   render() {
     let notes = this.state.notes.map((note) => (
       <Note
@@ -149,6 +176,7 @@ class Noteboard extends Component {
         dragNote={this.dragNote}
         resizeNote={this.resizeNote}
         deleteNote={this.deleteNote}
+        writeNote={this.writeNote}
         selected={this.state.selectedNoteID === note.id}
         isDragging={this.state.isDragging}
         isResizing={this.state.isResizing}

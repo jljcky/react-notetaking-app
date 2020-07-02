@@ -35,6 +35,7 @@ class Note extends Component {
         <NoteDrag isDragging={this.props.isDragging} />
         <NoteField
           description={note.description}
+          writeNote={this.props.writeNote}
           isNotIdle={this.props.isNotIdle}
         />
         <NoteResize

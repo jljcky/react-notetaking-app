@@ -6,6 +6,10 @@ class NoteField extends Component {
       <textarea
         className="note-field"
         disabled={this.props.isNotIdle}
+        value={this.props.description}
+        onChange={(e) => {
+          this.props.writeNote(e);
+        }}
       ></textarea>
     );
   }

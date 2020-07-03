@@ -4,6 +4,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0px;
+  overflow: hidden;
 }
 
 .noteboard {
@@ -19,8 +20,6 @@ body {
   box-shadow: 0px 0px 10px black;
   display: flex;
   flex-flow: column;
-  /* border: 5px solid lightskyblue;
-  box-sizing: border-box; */
   min-width: 100px;
   min-height: 100px;
 }
@@ -28,7 +27,7 @@ body {
 .note-drag {
   flex: 0 1 30px;
   display: flex;
-  background-color: rgba(211, 211, 211, 0.329);
+  background-color: rgba(238, 203, 139, 0.418);
 }
 
 .note-field {
@@ -38,10 +37,17 @@ body {
   overflow-wrap: break-word;
   resize: none;
   border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+}
+
+.note-field:focus {
+  outline: skyblue 3px solid;
 }
 
 .note-field:disabled {
   background: transparent;
+  color: black;
 }
 
 .note-resize {

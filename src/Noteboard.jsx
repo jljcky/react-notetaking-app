@@ -27,8 +27,8 @@ class Noteboard extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    localStorage.setItem("notes", JSON.stringify(prevState));
+  componentDidUpdate() {
+    localStorage.setItem("notes", JSON.stringify(this.state));
   }
 
   selectNote = (e, id) => {
@@ -158,7 +158,6 @@ class Noteboard extends Component {
   writeNote = (e) => {
     let notes = this.workWithNote(this.state.selectedNoteID, (note) => {
       note.description = e.target.value;
-      console.log(note.description);
       return note;
     });
 

@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-notetaking-app/static/css/main.b3b8edc7.chunk.css",
+    "main.js": "/react-notetaking-app/static/js/main.ab5a80f1.chunk.js",
+    "main.js.map": "/react-notetaking-app/static/js/main.ab5a80f1.chunk.js.map",
+    "runtime-main.js": "/react-notetaking-app/static/js/runtime-main.d79b33a7.js",
+    "runtime-main.js.map": "/react-notetaking-app/static/js/runtime-main.d79b33a7.js.map",
+    "static/js/2.3deffe65.chunk.js": "/react-notetaking-app/static/js/2.3deffe65.chunk.js",
+    "static/js/2.3deffe65.chunk.js.map": "/react-notetaking-app/static/js/2.3deffe65.chunk.js.map",
+    "index.html": "/react-notetaking-app/index.html",
+    "precache-manifest.0778deb18255df8c281b9670bf34838d.js": "/react-notetaking-app/precache-manifest.0778deb18255df8c281b9670bf34838d.js",
+    "service-worker.js": "/react-notetaking-app/service-worker.js",
+    "static/css/main.b3b8edc7.chunk.css.map": "/react-notetaking-app/static/css/main.b3b8edc7.chunk.css.map",
+    "static/js/2.3deffe65.chunk.js.LICENSE.txt": "/react-notetaking-app/static/js/2.3deffe65.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d79b33a7.js",
+    "static/js/2.3deffe65.chunk.js",
+    "static/css/main.b3b8edc7.chunk.css",
+    "static/js/main.ab5a80f1.chunk.js"
+  ]
+}

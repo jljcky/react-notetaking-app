@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-notetaking-app/precache-manifest.52fca559eeed4968cbace6fe75de758f.js"
+  "/react-notetaking-app/precache-manifest.4c4eecfb39bd78be80dfee181dd8f18c.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -5,8 +5,8 @@ const NoteDelete = (props) => {
   return (
     <div
       className="note-delete"
-      onClick={(e) => {
-        props.deleteNote(e, props.id);
+      onClick={() => {
+        props.deleteNote(props.noteID);
       }}
       style={{
         left: props.x - props.side / 2,

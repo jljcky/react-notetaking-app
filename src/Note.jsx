@@ -31,7 +31,8 @@ class Note extends Component {
         <NoteField
           description={note.description}
           writeNote={this.props.writeNote}
-          isNotIdle={this.props.isNotIdle}
+          isNotIdle={this.props.isDragging || this.props.isResizing}
+          selected={this.props.selected}
         />
         <NoteResize
           noteID={note.noteID}

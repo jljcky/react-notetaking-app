@@ -39,7 +39,7 @@ class Noteboard extends Component {
 
   createNote = (e) => {
     let notes = this.state.notes;
-    notes.push({
+    let note = {
       width: 250,
       height: 250,
       noteID: this.state.noteID,
@@ -47,7 +47,8 @@ class Noteboard extends Component {
       y: e.clientY,
       zIndex: this.state.zIndex,
       description: "",
-    });
+    };
+    notes.push(note);
     this.setState((prevState) => {
       return {
         zIndex: prevState.zIndex + 1,
@@ -55,6 +56,7 @@ class Noteboard extends Component {
         notes: notes,
       };
     });
+    return note.noteID;
   };
 
   getMouseInfoFromNote = (e, id) => {
@@ -132,7 +134,6 @@ class Noteboard extends Component {
         selected={this.state.selectedNoteID === note.noteID}
         isDragging={this.state.isDragging}
         isResizing={this.state.isResizing}
-        isNotIdle={this.state.isDragging || this.state.isResizing}
       />
     ));
     return (
@@ -140,24 +141,23 @@ class Noteboard extends Component {
         className="noteboard"
         onDoubleClick={(e) => {
           if (e.target.className !== "noteboard") return;
-          this.createNote(e);
+          let newNoteID = this.createNote(e);
+          this.selectNote(newNoteID);
         }}
         onMouseDown={(e) => {
           if (e.target.className === "note-drag")
             this.setState({ isDragging: true });
           else if (e.target.className === "note-resize")
             this.setState({ isResizing: true });
+          else if (e.target.className === "noteboard") this.deselectNote();
         }}
         onMouseMove={(e) => {
           if (this.state.selectedNoteID === -1) return;
-          else if (this.state.isDragging)
-            this.dragNote(e, this.state.selectedNoteID, "mousemove");
-          else if (this.state.isResizing)
-            this.resizeNote(e, this.state.selectedNoteID, "mousemove");
+          else if (this.state.isDragging) this.dragNote(e);
+          else if (this.state.isResizing) this.resizeNote(e);
         }}
         onMouseUp={(e) => {
           this.setState({ isResizing: false, isDragging: false });
-          if (e.target.className === "noteboard") this.deselectNote();
         }}
       >
         {notes}

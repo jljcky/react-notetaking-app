@@ -1,18 +1,19 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class NoteField extends Component {
-  render() {
-    return (
-      <textarea
-        className="note-field"
-        disabled={this.props.isNotIdle}
-        value={this.props.description}
-        onChange={(e) => {
-          this.props.writeNote(e);
-        }}
-      ></textarea>
-    );
-  }
-}
+const NoteField = (props) => {
+  // const [disableText, setTextDisabled] = useState(true);
+  return (
+    <textarea
+      className={"note-field" /* + (disableText ? " disabled-text" : "")*/}
+      disabled={props.isNotIdle}
+      value={props.description}
+      onChange={(e) => {
+        props.writeNote(e);
+      }}
+      // onFocus={() => setTextDisabled(false)}
+      // onBlur={() => setTextDisabled(true)}
+    ></textarea>
+  );
+};
 
 export default NoteField;

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ec1045babe99780e4eae74d0b0769075",
+    "revision": "3d888e4bb04a415e4808974e6a0a0778",
     "url": "/react-notetaking-app/index.html"
   },
   {
-    "revision": "8d2288d86bfc14b528e8",
+    "revision": "6e33f23592312555108c",
     "url": "/react-notetaking-app/static/css/main.b3b8edc7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-notetaking-app/static/js/2.3deffe65.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8d2288d86bfc14b528e8",
-    "url": "/react-notetaking-app/static/js/main.f5e3e561.chunk.js"
+    "revision": "6e33f23592312555108c",
+    "url": "/react-notetaking-app/static/js/main.f4792c47.chunk.js"
   },
   {
     "revision": "6db8e6fab86e68806bd9",

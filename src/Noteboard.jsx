@@ -160,6 +160,12 @@ class Noteboard extends Component {
           this.setState({ isResizing: false, isDragging: false });
         }}
       >
+        <div className="noteboard-header">
+          <h1>Note-taking App</h1>
+          <h3>by Jacky Lo</h3>
+          <br />
+          <div>Double-Click to create a note</div>
+        </div>
         {notes}
       </div>
     );

@@ -23,7 +23,7 @@ class Note extends Component {
           zIndex: note.zIndex,
         }}
         onMouseDown={(e) => {
-          this.props.selectNote(note.noteID);
+          this.props.selectNote(note.noteID, note.zIndex);
           this.props.getMouseInfoFromNote(e, note.noteID);
         }}
       >

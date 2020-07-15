@@ -15,18 +15,44 @@ class Noteboard extends Component {
     dY: 0,
   };
 
-  selectNote = (id) => {
+  componentDidMount() {
+    let noteboard = localStorage.getItem("notes");
+    if (noteboard) {
+      noteboard = JSON.parse(noteboard);
+      this.setState({
+        noteID: noteboard.noteID,
+        zIndex: noteboard.zIndex,
+        notes: noteboard.notes,
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.notes.length === 0) {
+      localStorage.removeItem("notes");
+    } else {
+      localStorage.setItem(
+        "notes",
+        JSON.stringify({
+          noteID: this.state.noteID,
+          zIndex: this.state.zIndex,
+          notes: this.state.notes,
+        })
+      );
+    }
+  }
+
+  selectNote = (id, zIndex) => {
     let notes = this.state.notes.map((note) => {
       if (note.noteID === id) {
-        note.zIndex = this.state.zIndex;
-      }
+        if (note.zIndex !== this.state.zIndex) note.zIndex = this.state.zIndex;
+      } else if (note.zIndex > zIndex) note.zIndex--;
       return note;
     });
-    this.setState((prevState) => {
+    this.setState(() => {
       return {
         notes: notes,
         selectedNoteID: id,
-        zIndex: prevState.zIndex + 1,
       };
     });
   };
@@ -106,7 +132,10 @@ class Noteboard extends Component {
 
   deleteNote = (id) => {
     let notes = this.state.notes.filter((note) => note.noteID !== id);
-    this.setState({ notes: notes });
+    this.setState({
+      notes: notes,
+      zIndex: notes.length === 0 ? 0 : this.state.zIndex,
+    });
   };
 
   writeNote = (e) => {

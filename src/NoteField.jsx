@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const NoteField = (props) => {
   // const [disableText, setTextDisabled] = useState(true);
